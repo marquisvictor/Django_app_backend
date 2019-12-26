@@ -15,8 +15,15 @@
 		</h1>
 	</div>
 
+		{% for post in posts %}
+			<div>
+				<p>published: {{ post.published_date }}</p>
+				<h2><a href="">{{ post.title }}</a></h2>
+				<p>{{post.text|linebreaksbr}}</p>
+			</div>
+		{% endfor %}
 
-	<div>
+	<!-- <div>
 		<p>Published: 26th December, 2019</p>
 		<h2><a href="/">My first Post</a></h2>
 		<p>Well, fuck it! HTML gotta be the easiest
@@ -28,7 +35,7 @@
 		<p>Published: 261th December, 2019</p>
 		<h2><a href="/">My second post</a></h2>
 		<p>Yeah! you fucking heard me. I said a different time bitch. </p>
-	</div>
+	</div> -->
 
 </body>
 </html>

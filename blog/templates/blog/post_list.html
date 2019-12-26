@@ -1,41 +1,14 @@
-<!DOCTYPE html>
-<html>
+{% extends 'blog/base.html' %}
 
 
-<head>
-	<title>	
-		victor's blog
-	</title>
-</head>
-
-<body>
-	<div>
-		<h1>
-			<a href="/">Victor's blog</a>
-		</h1>
-	</div>
-
-		{% for post in posts %}
-			<div>
-				<p>published: {{ post.published_date }}</p>
-				<h2><a href="">{{ post.title }}</a></h2>
-				<p>{{post.text|linebreaksbr}}</p>
-			</div>
-		{% endfor %}
-
-	<!-- <div>
-		<p>Published: 26th December, 2019</p>
-		<h2><a href="/">My first Post</a></h2>
-		<p>Well, fuck it! HTML gotta be the easiest
-		thing on the planet right now. </p>
-	</div>
-
-
-	<div>
-		<p>Published: 261th December, 2019</p>
-		<h2><a href="/">My second post</a></h2>
-		<p>Yeah! you fucking heard me. I said a different time bitch. </p>
-	</div> -->
-
-</body>
-</html>
+{% block content %}
+    {% for post in posts %}
+        <div class="post">
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+            <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+            <p>{{ post.text|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}
